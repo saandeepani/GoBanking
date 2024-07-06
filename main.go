@@ -1,8 +1,8 @@
 package main
 
-import "github.com/"
+import "github.com/saandeepani/GoBanking/app"
 
 func main() {
-	Start()
+	app.Start()
 
 }

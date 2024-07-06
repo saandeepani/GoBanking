@@ -1,9 +1,16 @@
 package app
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
 
 func Start() {
-	http.HandleFunc("/greet", greet)
-	http.HandleFunc("/customers", getAllCustomers)
-	http.ListenAndServe("localhost:8080", nil)
+
+	mux := http.NewServeMux()
+
+	mux.HandleFunc("/greet", greet)
+	mux.HandleFunc("/customers", getAllCustomers)
+	log.Fatal(http.ListenAndServe("localhost:8080", mux))
+	
 }
